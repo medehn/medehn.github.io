@@ -1063,7 +1063,7 @@ body {
     /* Mobile Page Logo */
     .page-logo {
         display: block;
-        position: fixed;
+        position: relative;
         top: 12px;
         left: 50%;
         transform: translateX(-50%);
@@ -1113,7 +1113,6 @@ body {
 
     .gallery-page-container h1 {
         font-size: 1.5rem;
-        margin-top: 60px;
     }
 
     .artwork-detail {
@@ -1159,7 +1158,6 @@ body {
     .page-container h1 {
         font-size: 1.5rem;
         margin-bottom: 1.5rem;
-        margin-top: 40px;
         padding-left: 0;
     }
 
