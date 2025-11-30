@@ -28,6 +28,18 @@ body {
     margin-left: 250px;
 }
 
+/* Page Logo */
+.page-logo {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: auto;
+    z-index: 999;
+    display: block;
+}
+
 /* Navigation */
 .navbar {
     position: fixed;
@@ -67,6 +79,46 @@ body {
 
 .nav-title {
     text-decoration: none;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    gap: 4px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+}
+
+.page-section .page-container h1 {
+    position: relative;
+    padding-left: 50px;
+}
+
+.hamburger span {
+    width: 20px;
+    height: 2.5px;
+    background-color: var(--dark-color);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
 }
 
 /* Logo in navbar */
@@ -229,6 +281,19 @@ body {
     object-fit: cover;
 }
 
+.gallery-cta {
+    max-width: 1400px;
+    margin: 60px auto 0;
+    text-align: center;
+    padding: 0 40px;
+}
+
+.gallery-cta p {
+    font-size: 1.1rem;
+    color: var(--medium-gray);
+    margin-bottom: 2rem;
+}
+
 .featured-item-1,
 .featured-item-4 {
     grid-column: span 1;
@@ -344,8 +409,9 @@ body {
     font-family: 'Montserrat', serif;
     font-size: 2.5rem;
     font-weight: 500;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     letter-spacing: 1px;
+    text-align: center;
 }
 
 /* Gallery Section */
@@ -683,6 +749,7 @@ body {
 .page-container {
     max-width: 900px;
     margin: 0 auto;
+    padding: 0 40px;
 }
 
 .page-container h1 {
@@ -946,6 +1013,264 @@ body {
 
     .option {
         padding: 1.5rem;
+    }
+
+    /* Mobile Navigation */
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar {
+        position: fixed;
+        left: -250px;
+        top: 0;
+        width: 250px;
+        height: 100vh;
+        z-index: 1000;
+        background-color: #f6f7ec;
+        border-right: 1px solid #f0f0f0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        transition: left 0.3s ease;
+    }
+
+    .navbar.active {
+        left: 0;
+    }
+
+    body {
+        margin-left: 0;
+    }
+
+    /* Mobile menu overlay to close on click */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    body.menu-open::before {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav-container {
+        padding-top: 10px;
+    }
+
+    /* Mobile Page Logo */
+    .page-logo {
+        display: block;
+        position: fixed;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: auto;
+        z-index: 999;
+    }
+
+    .hero {
+        margin-top: 0;
+        height: 350px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        auto-rows: auto;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .hero-simple {
+        padding: 40px 20px;
+    }
+
+    .featured-gallery {
+        padding: 40px 20px;
+        justify-content: center;
+    }
+
+    .gallery-page {
+        padding: 60px 0;
+        min-height: auto;
+        justify-content: center;
+    }
+
+    .gallery-page-container {
+        padding: 0 20px;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .gallery-page-container h1 {
+        font-size: 1.5rem;
+        margin-top: 60px;
+    }
+
+    .artwork-detail {
+        padding: 60px 0;
+        min-height: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .artwork-container {
+        padding: 0 20px;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .legal-page {
+        padding: 60px 0;
+        min-height: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .legal-page .container {
+        padding: 0 20px;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .page-section {
+        padding: 60px 0;
+        min-height: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .page-container {
+        max-width: 100%;
+        padding: 0 20px;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .page-container h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        margin-top: 40px;
+        padding-left: 0;
+    }
+
+    .page-container h2 {
+        font-size: 1.3rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .page-container p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1.2rem;
+    }
+
+    /* Mobile Process Steps */
+    .process-steps {
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .process-step {
+        padding-bottom: 1.5rem;
+    }
+
+    .process-step h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .process-step p {
+        font-size: 0.85rem;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .process-philosophy {
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .process-philosophy h2 {
+        margin-top: 0;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .process-philosophy p {
+        font-size: 0.85rem;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* Mobile Techniques List */
+    .techniques-list {
+        gap: 0.75rem 1.5rem;
+    }
+
+    .techniques-list span {
+        font-size: 0.8rem;
+        padding-bottom: 0.25rem;
+    }
+
+    /* Mobile CTA buttons on about page */
+    .page-container a.btn {
+        display: block;
+        margin: 0.75rem 0;
+    }
+
+    .page-container a.btn:first-of-type {
+        margin-top: 0;
+    }
+
+    /* Mobile Gallery CTA */
+    .gallery-cta {
+        width: 100%;
+        max-width: 500px;
+        margin: 40px auto 0;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .gallery-cta p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .gallery-cta .btn {
+        display: block;
+        width: 100%;
+        padding: 12px 30px;
+        text-align: center;
+    }
+
+    .footer {
+        padding: 40px 20px 30px;
+    }
+
+    .footer-content {
+        margin-bottom: 20px;
+    }
+
+    .copyright {
+        font-size: 0.75rem;
     }
 }
 
